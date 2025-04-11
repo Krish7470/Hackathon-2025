@@ -1,0 +1,95 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-image: url('Beige Minimal Frame Sign Up Instagram Post (Website).png');
+    background-repeat: no-repeat;
+    background-position: fixed;
+    background-size: cover;
+}
+
+.panel {
+    display: flex;
+    height: 80px;
+    background-color: #800e13;
+    align-items: center;
+    color: white;
+}
+
+.fir-complain {
+    width: 800px;
+    margin: 15px auto 5px auto;
+    color: #111112;
+}
+
+h1 {
+    padding-right: 1050px;
+    font-size: 20px;
+}
+
+.icon {
+    font-size: 50px;
+    margin-left: 10px;
+    padding-right: 10px;
+    color: #4dbbdf;
+}
+
+.icon i {
+    font-size: 30px;
+}
+
+.complain {
+    width: 50%;
+}
+
+textarea {
+    width: 800px;
+    height: 100px;
+}
+
+input {
+    border: none;
+    border-radius: 5px;
+    padding-left: 5px;
+}
+
+button {
+    width: 70px;
+    margin-top: 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+/* Media query for tablets (max-width: 768px) */
+@media (max-width: 768px) {
+    .fir-complain {
+        width: 70%;
+    }
+
+    .icon i {
+        font-size: 40px;
+    }
+}
+
+/* Media query for mobile devices (max-width: 480px) */
+@media (max-width: 480px) {
+    .fir-complain {
+        width: 90%;
+    }
+
+    .icon i {
+        font-size: 30px;
+    }
+
+    h1 {
+        font-size: 20px;
+    }
+
+    button {
+        font-size: 16px;
+    }
+}

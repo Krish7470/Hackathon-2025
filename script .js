@@ -29,7 +29,7 @@ otpInputs.forEach((input, index) => {
 });
 
 // OTP verification
-const verifyOtpButton = document.querySelector('button[type="buttom"]');
+const verifyOtpButton = document.querySelector('button[type="button"]');
 verifyOtpButton.addEventListener('click', () => {
     const otp = Array.from(otpInputs).map(input => input.value).join('');
     if (otp.length === 4) {

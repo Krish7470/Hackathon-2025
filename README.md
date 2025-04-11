@@ -6,3 +6,6 @@ signatures. Key features include anonymous reporting (with optional later identi
 upload with secure metadata handling, FIR preview before submission, case tracking dashboard with real-time
 updates, integration with CCTNS for SHO routing and approval, and appointment booking for in-person police
 verification.
+
+Goal : To make the FIR process transparent, accessible, and secure—empowering citizens with a digital-first approach
+to justice.

@@ -2,8 +2,8 @@
 const officerLoginLink = document.querySelector('#officer-login');
 if (officerLoginLink) {
     officerLoginLink.addEventListener('click', (e) => {
-        e.preventDefault(); // Prevent default link behavior
-        window.location.href = 'dashborad-officer.html'; // Redirect to the dashboard page
+        e.preventDefault();
+        window.location.href = 'dashborad-officer.html';
     });
 }
 
@@ -45,7 +45,7 @@ if (otpInputs.length > 0) {
         const otp = Array.from(otpInputs).map(input => input.value).join('');
         if (otp.length === 4) {
             alert('OTP Verified Successfully!');
-            window.location.href = 'file_fir.html'; // Redirect to FIR filing page
+            window.location.href = 'file_fir.html';
         } else {
             alert('Please enter a valid 4-digit OTP.');
         }
@@ -55,23 +55,39 @@ if (otpInputs.length > 0) {
 // FIR form submission
 if (window.location.pathname.includes('file_fir.html')) {
     const submitButton = document.querySelector('#submit-fir');
-    submitButton.addEventListener('click', () => {
-        const incidentDescription = document.querySelector('textarea:nth-of-type(1)').value;
-        const incidentAddress = document.querySelector('textarea:nth-of-type(2)').value;
-        const guardianPhone = document.querySelector('input[type="number"]').value;
-        const suspect = document.querySelector('textarea:nth-of-type(3)').value;
-        const causeOfDeath = document.querySelector('select').value;
+    submitButton.addEventListener('click', async () => {
+        const firData = {
+            incidentDescription: document.querySelector('textarea:nth-of-type(1)').value,
+            incidentAddress: document.querySelector('textarea:nth-of-type(2)').value,
+            guardianPhone: document.querySelector('input[type="number"]').value,
+            suspect: document.querySelector('textarea:nth-of-type(3)').value,
+            dateOfIncident: document.querySelector('input[type="date"]').value,
+            timeOfIncident: document.querySelector('input[type="time"]').value,
+            causeOfFir: document.querySelector('select').value,
+            evidence: document.querySelector('input[type="file"]').value,
+        };
 
-        if (
-            incidentDescription &&
-            incidentAddress &&
-            guardianPhone &&
-            suspect &&
-            causeOfDeath
-        ) {
-            alert('FIR Submitted Successfully!');
-        } else {
+        if (Object.values(firData).some(field => !field)) {
             alert('Please fill out all fields before submitting.');
+            return;
+        }
+
+        try {
+            const response = await fetch('http://127.0.0.1:5000/api/fir', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(firData),
+            });
+
+            if (response.ok) {
+                alert('FIR Submitted Successfully!');
+                document.querySelector('.fir-complain').reset();
+            } else {
+                alert('Failed to submit FIR. Please try again.');
+            }
+        } catch (error) {
+            console.error('Error:', error);
+            alert('An error occurred while submitting the FIR.');
         }
     });
 }

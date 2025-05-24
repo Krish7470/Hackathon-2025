@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Officer Dashboard </title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            background-color: #f5ebe0;
+            font-family:  Garamond;
+        }
+        header{
+            background-color: #343a40;
+            color: white;
+            padding: 20px;
+            height: 50px;
+            display:flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        h1{
+            padding-left: 15px;
+            font-family:Cambria;
+        }
+        .dashboard{
+            width: 60%;
+            margin: 20px auto;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: #ffffff;  
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .officer-profile {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            margin-bottom: 32px;
+        }
+        .profile-photo {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            border: 3px solid #343a40;
+            object-fit: cover;
+        }
+        .profile-info h2 {
+            margin-bottom: 8px;
+            color: #343a40;
+        }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 20px;
+        }
+        .stat-card {
+            background: #f5ebe0;
+            border-radius: 10px;
+            padding: 24px 12px;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(52,58,64,0.08);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .stat-card:hover {
+            transform: translateY(-6px) scale(1.04);
+            box-shadow: 0 6px 24px rgba(52,58,64,0.18);
+        }
+        .stat-label {
+            display: block;
+            font-size: 1.1rem;
+            color: #343a40;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+        .stat-value {
+            font-size: 2.1rem;
+            color: #1d3557;
+            font-weight: bold;
+            transition: color 0.2s;
+        }
+        footer{
+            background-color: #343a40;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            margin-top: 140px;
+        }
+        @media (max-width: 700px) {
+            .dashboard {
+                width: 98vw;
+                padding: 10px;
+            }
+            .officer-profile {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 12px;
+            }
+            .profile-photo {
+                width: 70px;
+                height: 70px;
+            }
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+    <body>
+        <header>
+            <div style="display:flex; align-items: center;">
+                <img style="width: 50px; height: 50px; border-radius: 50%; margin-left: 20px; font: 40px;" src="https://thumbs.dreamstime.com/b/police-badge-icon-shield-star-vector-illustration-white-background-140966016.jpg">
+                <h1>Virtual Police Station</h1>
+            </div>
+        </header>
+        <div class="dashboard">
+            <div class="officer-profile">
+                <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Officer Photo" class="profile-photo">
+                <div class="profile-info">
+                <h2>Inspector Rajesh Kumar</h2>
+                <p><strong>Rank:</strong> Inspector</p>
+                <p><strong>State:</strong> Uttar Pradesh</p>
+            </div>
+        </div>
+        <div class="stats-grid">
+            <div class="stat-card">
+                <span class="stat-label">Pending FIR</span>
+                <span class="stat-value" data-count="12">0</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-label">Solved FIR</span>
+                <span class="stat-value" data-count="34">0</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-label">Currently Investigating</span>
+                <span class="stat-value" data-count="5">0</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-label">10 Years Back FIR</span>
+                <span class="stat-value" data-count="120">0</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-label">20 Years Back FIR</span>
+                <span class="stat-value" data-count="80">0</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-label">50 Years Back FIR</span>
+                <span class="stat-value" data-count="15">0</span>
+            </div>
+        </div>
+    </div>
+        <footer>
+            <p style="text-align:center;">&copy; 2025 Virtual Police Station. All rights reserved.</p>
+        </footer>
+    <script>
+        // Animated counters for stats
+        document.querySelectorAll('.stat-value').forEach(el => {
+            const target = +el.getAttribute('data-count');
+            let count = 0;
+            const increment = Math.ceil(target / 40);
+            function update() {
+                count += increment;
+                if (count >= target) {
+                    el.textContent = target;
+                } else {
+                    el.textContent = count;
+                    requestAnimationFrame(update);
+                }
+            }
+         update();
+        });
+    </script>
+    </body>
+</html>

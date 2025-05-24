@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Check Progress Of FIR of Vps</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            background-color: #f5ebe0;
+            font-family:  Garamond;
+        }
+        header{
+            background-color: #343a40;
+            color: white;
+            padding: 20px;
+            height: 50px;
+            display:flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        h1{
+            padding-left: 15px;
+            font-family:Cambria;
+        }
+       .check-progress {
+            width: 400px;
+            max-width: 95vw;
+            margin: 40px auto;
+            padding: 30px 20px;
+            background-color: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 16px rgba(52,58,64,0.10);
+        }
+        footer{
+            background-color: #343a40;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            margin-top: 150px;
+        } 
+        @media (max-width: 600px) {
+        .check-progress {
+            padding: 15px 5px;
+            width: 98vw;
+        }
+        header {
+            flex-direction: column;
+            align-items: flex-start;
+            padding: 10px;
+        }
+        h1 {
+            font-size: 1.2rem;
+            padding-left: 0;
+        }
+    }
+    </style>
+</head>
+    <body>
+        <header>
+            <div style="display:flex; align-items: center;">
+                <img style="width: 50px; height: 50px; border-radius: 50%; margin-left: 20px;" src="https://thumbs.dreamstime.com/b/police-badge-icon-shield-star-vector-illustration-white-background-140966016.jpg" alt="Police Badge">
+                <h1>Virtual Police Station</h1>
+            </div>
+        </header>
+        <main>
+            <div class="check-progress">
+                <h2 style="color:#343a40; text-align:center; margin-bottom:20px;">Check FIR Progress</h2>
+                <form id="firForm" style="display:flex; flex-direction:column; gap:18px;">
+                    <label for="firNumber" style="color:#343a40; font-size:1.1rem;">Enter FIR Number:</label>
+                    <input type="text" id="firNumber" name="firNumber" placeholder="e.g. FIR12345" required style="padding:10px; border-radius:5px; border:1px solid #ccc; font-size:1rem;">
+                    <label for="firStatus" style="color:#343a40; font-size:1.1rem;">Select Status (Demo):</label>
+                    <select id="firStatus" name="firStatus" style="padding:10px; border-radius:5px; border:1px solid #ccc; font-size:1rem;">
+                        <option value="pending">Pending</option>
+                        <option value="solved">Solved</option>
+                        <option value="notactive">Currently Not Active</option>
+                        <option value="closed">FIR Closed</option>
+                    </select>
+                    <button type="submit" style="padding:10px; background:#343a40; color:#fff; border:none; border-radius:5px; font-size:1rem; cursor:pointer; transition:background 0.2s;">Check Status</button>
+                </form>
+                <div id="result" style="margin-top:25px; text-align:center; font-size:1.2rem; font-weight:bold;"></div>
+            </div>
+        </main>
+        <footer>
+            <p style="text-align:center;">&copy; 2025 Virtual Police Station. All rights reserved.</p>
+        </footer>
+        <script>
+            document.getElementById('firForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                const firNumber = document.getElementById('firNumber').value.trim();
+                const status = document.getElementById('firStatus').value;
+                let statusText = '';
+                let color = '';
+                switch(status) {
+                    case 'pending':
+                        statusText = 'Your FIR is Pending. Please wait for further updates.';
+                        color = '#e67e22';
+                        break;
+                    case 'solved':
+                        statusText = 'Congratulations! Your FIR has been Solved.';
+                        color = '#27ae60';
+                        break;
+                    case 'notactive':
+                        statusText = 'Your FIR is Currently Not Active. Please contact your local police station for more information.';
+                        color = '#f39c12';
+                        break;
+                    case 'closed':
+                        statusText = 'Your FIR is Closed. For further queries, contact the concerned authorities.';
+                        color = '#c0392b';
+                        break;
+                    }
+            document.getElementById('result').innerHTML = 
+                `<span style="color:${color};">${statusText}</span>`;
+            });
+        </script>
+    </body>
+</html>

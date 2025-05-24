@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Officer Log in for Vps</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            background-color: #f5ebe0;
+            font-family:  Garamond;
+        }
+        header{
+            background-color: #343a40;
+            color: white;
+            padding: 20px;
+            height: 50px;
+            display:flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        h1{
+            padding-left: 15px;
+            font-family:Cambria;
+        }
+        .Sign-Up{
+            width: 30%;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .otp-input{
+            width: 40px;
+            height: 40px;
+            text-align:center;
+            font-size: 24px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            outline: none;;
+        }
+        .otp-input:focus{
+            border-color: #007bff;
+            box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+        }
+        input{
+            width: 43%;
+            height: 25px;
+            padding-left: 8px;
+            margin-top: 6px;
+            margin-bottom: 6px;
+            margin-left: 19px;
+        }
+        h2{
+            font-size: 35px;
+            font-weight: bold;
+            padding-left: 10px;
+            margin-top: 6px;
+            margin-bottom: 6px;
+        }
+        h3{
+            font-size: 20px;
+            font-weight: bold;
+            padding-left: 30%;
+            margin-top: 18px;
+        }
+        footer{
+            background-color: #343a40;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            margin-top: 217px;
+        } 
+    </style>
+</head>
+    <body>
+        <header>
+            <div style="display:flex; align-items: center;">
+                <img style="width: 50px; height: 50px; border-radius: 50%; margin-left: 20px; font: 40px;" src="https://thumbs.dreamstime.com/b/police-badge-icon-shield-star-vector-illustration-white-background-140966016.jpg">
+                <h1>Virtual Police Station</h1>
+            </div>
+        </header>
+        <div class="Sign-Up">
+            <h2>Enter Officer UserName:</h2>
+            <input type="text" id="UserName" placeholder="Enter valid UserName" required>
+            <h2>Enter Password :</h2>
+            <input type="password" id="password" placeholder="Create Password" required>
+            <h2>Confirm Password :</h2>
+            <input type="password" id="confirm-password" placeholder="Confirm Password" required>
+            <h3>Forget Password ?</h3>   
+            <input type="submit" value="Log in" style="margin-left: 30%; height: 40px; margin-top: 20px; padding: 10px 20px; font-weight: bold; background-color: #0656d6; color: white; border: none; border-radius: 5px;cursor: pointer;">
+        </div>
+        <footer>
+            <p style="text-align:center;">&copy; 2025 Virtual Police Station. All rights reserved.</p>
+        </footer>
+        <!-- Add before </body> in Officer_Login_Vps.html -->
+        <script>
+            document.querySelector('input[type="submit"]').addEventListener('click', function(e) {
+            e.preventDefault();
+            const username = document.getElementById('UserName').value;
+            const pass = document.getElementById('password').value;
+            const confirm = document.getElementById('confirm-password').value;
+            if (!username || !pass || !confirm) {
+                alert("Please fill all fields.");
+                return;
+            }
+            if (pass !== confirm) {
+                alert("Passwords do not match!");
+                return;
+            }
+            alert("Login Successful!");
+            window.location.href = "Officer_Dashboard_Vps.html";
+        });
+        </script>
+    </body>
+</html>

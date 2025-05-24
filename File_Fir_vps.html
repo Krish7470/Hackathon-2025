@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File FIR for VPS</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            background-color: #f5ebe0;
+            font-family:  Garamond;
+        }
+        header{
+            background-color: #343a40;
+            color: white;
+            padding: 20px;
+            height: 50px;
+            display:flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        h1{
+            padding-left: 15px;
+            font-family:Cambria;
+        }
+                nav{
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+        li{
+            list-style-type: none;
+            text-decoration: none;
+        }
+        a{
+            color: #ced4da;
+            text-decoration: none;
+            font-size: 25px;
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+        .FIR-Fill{
+            width: 60%;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        textarea{
+            width: 80%;
+            height: 100px;
+            padding-left: 10px;
+            margin-top: 10px;
+            margin-left: 30px;
+            margin-bottom: 6px;
+            border-radius: 3px;
+            opacity: 0.6;
+        }
+        h2{
+            font-size: 35px;
+            font-weight: bold;
+            padding-left: 20px;
+            margin-top: 6px;
+            margin-bottom: 6px;
+        }
+        input{
+            margin-left: 30px;
+            padding-left: 8px;
+            height: 30px;
+            width: 80%;
+            margin-top: 6px;
+            margin-bottom: 6px;
+            opacity: 0.6;
+        }
+        select{
+            margin-left: 30px;
+            padding-left: 8px;
+            height: 26px;
+            width: 80%;
+            margin-top: 6px;
+            margin-bottom: 6px;
+            opacity: 0.6;
+        }
+        footer{
+            background-color: #343a40;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            margin-top: 20px;
+        } 
+    </style>
+</head>
+    <body>
+        <header>
+            <div style="display:flex; align-items: center;">
+                <img style="width: 50px; height: 50px; border-radius: 50%; margin-left: 20px; font: 40px;" src="https://thumbs.dreamstime.com/b/police-badge-icon-shield-star-vector-illustration-white-background-140966016.jpg">
+                <h1>Virtual Police Station</h1>
+            </div>
+        </header>
+        <div class="FIR-Fill">
+            <h2>Incident Description :</h2>
+            <textarea rows="4" cols="50" placeholder="Describe the incident here..."></textarea>
+            <h2>Incident Location :</h2>
+            <input type="text" placeholder="Enter the location of the incident">
+            <h2>Incident Date :</h2>
+            <input type="date">
+            <h2>Incident Time :</h2>
+            <input type="time">
+            <h2>Suspect (If any):</h2>
+            <input type="text" placeholder="Enter the name of the witness">
+            <h2>Evidence (Photos, Video, Audio) :</h2>
+            <input type="file" accept="image/*,video/*,audio/*">
+            <h2>Reason Of FIR :</h2>
+            <select>
+                <option value="Theft">Theft</option>
+                <option value="Murder">Murder</option>
+                <option value="Missing Person">Missing Person</option>
+                <option value="Fraud">Fraud</option>
+                <option value="Assault">Assault</option>
+                <option value="Rape">Rape</option>
+                <option value="Threaten">Threaten</option>
+                <option value="Accident">Accident</option>
+                <option value="Domestic violence">Domestic Violence</option>
+                <option value="Family feuds">Family feuds</option>
+                <option value="Domestic disputes">Domestic disputes</option>
+                <option value="Siblings rivarly">Siblings rivarly</option>
+                <option value="Parantel conflict">Parental conflict</option>
+                <option value="Intergenerational conflict">Intergenerational conflict</option>
+                <option value="Property disputes">Property disputes</option>
+                <option value="Marital discord">Marital discord</option>
+                <option value="Jealousy">Jealousy</option>
+            </select><br>
+            <input type="submit" value="Submit" style="margin-left: 32px; margin-top: 10px; padding: 10px 20px; width: 120px; height: 40px; background-color: #0656d6; color: white; border: none; border-radius: 5px;">
+        </div>
+        <footer>
+            <p style="text-align:center;">&copy; 2025 Virtual Police Station. All rights reserved.</p>
+        </footer>
+        <!-- Add before </body> in File_Fir_Vps.html -->
+        <script>
+            document.querySelector('input[type="submit"]').addEventListener('click', function(e) {
+            e.preventDefault();
+            alert("FIR Submitted Successfully!");
+            });
+        </script>
+    </body>
+</html>

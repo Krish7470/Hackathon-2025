@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up for Vps</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            background-color: #f5ebe0;
+            font-family:  Garamond;
+        }
+        header{
+            background-color: #343a40;
+            color: white;
+            padding: 20px;
+            height: 50px;
+            display:flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        h1{
+            padding-left: 15px;
+            font-family:Cambria;
+        }
+        .Sign-Up{
+            width: 30%;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .otp-input{
+            width: 40px;
+            height: 40px;
+            text-align:center;
+            font-size: 24px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            outline: none;;
+        }
+        .otp-input:focus{
+            border-color: #007bff;
+            box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+        }
+        input{
+            width: 30%;
+            height: 25px;
+            padding-left: 6px;
+            margin-top: 6px;
+            margin-bottom: 6px;
+            margin-left: 19px;
+        }
+        h2{
+            font-size: 35px;
+            font-weight: bold;
+            padding-left: 10px;
+            margin-top: 6px;
+            margin-bottom: 6px;
+        }
+        footer{
+            background-color: #343a40;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            margin-top: 270px;
+        } 
+    </style>
+</head>
+    <body>
+        <header>
+            <div style="display:flex; align-items: center;">
+                <img style="width: 50px; height: 50px; border-radius: 50%; margin-left: 20px; font: 40px;" src="https://thumbs.dreamstime.com/b/police-badge-icon-shield-star-vector-illustration-white-background-140966016.jpg">
+                <h1>Virtual Police Station</h1>
+            </div>
+        </header>
+        <div class="Sign-Up">
+            <h2>Enter Aadhar Number :</h2>
+            <input type="text" id="aadhar" placeholder="xxxx-xxxx-xxxx" required>
+            <h2>Enter OTP :</h2>
+            <input type="text" maxlength="1" class="otp-input" autofocus>
+            <input type="text" maxlength="1" class="otp-input" autofocus>
+            <input type="text" maxlength="1" class="otp-input" autofocus>
+            <input type="text" maxlength="1" class="otp-input" autofocus><br>
+            <!-- For Send OTP button -->
+            <input type="button" value="Send OTP" onclick="sendOTP()" ... >
+
+            <!-- For Verify OTP button -->
+            <input type="button" value="Verify OTP" onclick="verifyOTP()" ... >
+        </div>
+        <footer>
+            <p style="text-align:center;">&copy; 2025 Virtual Police Station. All rights reserved.</p>
+        </footer>
+        <!-- Add before </body> in Sign_up_Vps.html and Officer_Sign_up_Vps.html -->
+    <script>
+        let generatedOTP = "";
+
+        function sendOTP() {
+            generatedOTP = Math.floor(1000 + Math.random() * 9000).toString();
+            alert("Your OTP is: " + generatedOTP);
+        }
+
+        function verifyOTP() {
+            const inputs = document.querySelectorAll('.otp-input');
+            let enteredOTP = "";
+            inputs.forEach(input => enteredOTP += input.value);
+            if (enteredOTP === generatedOTP) {
+                alert("OTP Verified Successfully!");
+            } else {
+                alert("Incorrect OTP. Please try again.");
+            }
+        }
+
+        // Auto move to next input
+        document.querySelectorAll('.otp-input').forEach((input, idx, arr) => {
+            input.addEventListener('input', function() {
+                if (this.value.length === 1 && arr[idx + 1]) arr[idx + 1].focus();
+            });
+        });
+    </script>
+    </body>
+</html>
